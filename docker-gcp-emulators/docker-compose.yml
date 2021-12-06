@@ -1,0 +1,9 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  pubsub:
+    image: google/cloud-sdk:latest
+    container_name: gcp-pubsub-emulator
+    ports:
+      - "8889:8889"
+    command:
+      /bin/bash -c "gcloud beta emulators pubsub start --project fake-gcp-abc --host-port localhost:8889"
